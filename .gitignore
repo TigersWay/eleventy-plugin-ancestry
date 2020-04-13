@@ -1,0 +1,12 @@
+# Windows & Personal preferences
+desktop.ini
+folder.ico
+
+# (p)npm
+node_modules
+package-lock.json
+pnpm-lock.yaml
+
+# Eleventy
+_site
+
