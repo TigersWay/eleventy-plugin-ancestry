@@ -1,5 +1,5 @@
 {
-  "name": "eleventy-plugin-ancestry",
+  "name": "@tigersway/eleventy-plugin-ancestry",
   "description": "A plugin for creating a real hierarchical navigation, following folders and documents, in Eleventy projects. Supports breadcrumbs too!",
   "keywords": [
     "eleventy",
