@@ -1,3 +1,4 @@
 ---
-title: Kingdom = Animalia
+title: Animalia/Kingdom
+permalink: "animalia/"
 ---

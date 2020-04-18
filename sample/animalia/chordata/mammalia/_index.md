@@ -1,3 +1,4 @@
 ---
-title: Class = Mammalia
+title:  Mammalia/Class
+permalink: "animalia/chordata/mammalia/"
 ---

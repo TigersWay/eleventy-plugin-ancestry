@@ -72,16 +72,24 @@ module.exports = {
         }
       });
     }
-    // console.dir(ancestryMap, {depth:1});
+    // console.dir(ancestryMap, {depth:2});
     return ancestryMap;
   },
 
   find: (path) => {
+    path.replace(/_index$/, 'index');
+
     return ancestryMap[path];
   },
 
   children: (path) => {
-    return ancestryMap[path].children;
+    if (typeof path === 'object' && path.filePathStem) path = path.filePathStem;
+
+    path = path.replace(/_index$/, 'index');
+
+    if (ancestryMap[path].children) return ancestryMap[path].children;
+
+    return null;
   },
 
   sorted: (collection, key, ascendingOrder = true) => {

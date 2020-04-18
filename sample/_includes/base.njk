@@ -1,3 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{{ title }}</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
 <body>
-{{ content | safe }}
+  <header>
+    <h1>{{ title }}</h1>
+    <ul style="list-style:none;display:flex;padding:0">
+{%- for child in page | children %}
+<li style="padding-right:1em;"><a href="{{ child.url }}">{{ child.data.title }}</a></li>
+{%- endfor %}
+    </ul>
+    <hr>
+  </header>
+
+{{ (content or 'Empty document') | safe }}
+
+  <footer>
+    <hr>
+    <a href="/">Home</a>
+  </footer>
 </body>
+</html>

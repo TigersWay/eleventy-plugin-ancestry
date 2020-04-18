@@ -1,12 +1,10 @@
 ---
-title: Demo
+title: Ancestry Plugin Demo
 templateEngineOverride: md,njk
 ---
 {%- macro show(item) -%}
-{{ item.data.title }} {url:'{{ item.url }}'}
+[{{ item.data.title }} ({{ item.url }})]({{ item.url }})
 {%- endmacro -%}
-# Ancestry Plugin Demo
-
 
 ## Using Standard Collection access
 
@@ -21,10 +19,11 @@ templateEngineOverride: md,njk
 - {{ show(item) }}
 {%- endfor %}
 
+There are all here, but we cannot see any obvious organization.
 
 ## Now using Ancestry
 
-### find
+We can easily locate any document...
 
 {% raw %}
 ```
@@ -36,14 +35,14 @@ templateEngineOverride: md,njk
 - {{ show(item) }}
 {% raw %}
 ```
-{% set item = '/animals/reptiles/cobras' | find %}
+{% set item = '/animalia/chordata/reptilia/cobra' | find %}
 - {{ item.data.title }} {url:'{{ item.url }}'}
 ```
 {% endraw%}
-{% set item = '/animals/reptiles/cobras' | find %}
+{% set item = '/animalia/chordata/reptilia/cobra' | find %}
 - {{ show(item) }}
 
-### children
+... and their children:
 
 {% raw %}
 ```
@@ -67,8 +66,8 @@ templateEngineOverride: md,njk
 - {{ show(item) }}
 {%- endfor %}
 
+Children which can be sorted with a "deep" property.
 
-### Sorted children
 {% raw %}
 ```
 {%- for item in '/animalia/chordata/mammalia/index' | children | sorted('data.title') %}
