@@ -9,9 +9,9 @@ module.exports = {
     ecmaVersion: 2018
   },
   rules: {
-    'linebreak-style': ['error', 'unix'],
     indent: ['error', 2],
     semi: ['error', 'always'],
+    'linebreak-style': ['error', 'unix'],
     'no-console': 'off',
   }
 };

@@ -1,12 +1,21 @@
-# Windows & Personal preferences
+## Windows & Personal preferences
 desktop.ini
 folder.ico
+.vscode
 
 # (p)npm
 node_modules
 package-lock.json
 pnpm-lock.yaml
 
+# Logs, temp & archive files
+logs
+*.log
+*.7z
+
+# Destination & Generated output directories
+dest
+public
+
 # Eleventy
 _site
-

@@ -1,24 +1,22 @@
 {
   "name": "@tigersway/eleventy-plugin-ancestry",
-  "description": "A plugin for creating a real hierarchical navigation, following folders and documents, in Eleventy projects.",
+  "description": "A plugin for creating a real hierarchical navigation, following folders and documents, in Eleventy™ projects.",
   "keywords": [
     "eleventy",
     "11ty",
     "eleventy-plugin"
   ],
-  "version": "0.2.0",
+  "version": "0.3.0",
   "license": "MIT",
   "author": "Ben Michaud <ben@tigersway.net>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TigersWay/eleventy-plugin-ancestry.git"
   },
-  "homepage": "https://github.com/TigersWay/eleventy-plugin-ancestry",
   "scripts": {
     "demo": "rm -rf _site && npx eleventy --serve --input=sample"
   },
-  "main": ".eleventy.js",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0-beta.3"
+    "@11ty/eleventy": "^0.11.0"
   }
 }
