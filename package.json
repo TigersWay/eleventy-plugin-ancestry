@@ -6,13 +6,14 @@
     "11ty",
     "eleventy-plugin"
   ],
-  "version": "0.3.0",
+  "version": "0.4.0",
   "license": "MIT",
   "author": "Ben Michaud <ben@tigersway.net>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/TigersWay/eleventy-plugin-ancestry.git"
   },
+  "main": ".eleventy.js",
   "scripts": {
     "demo": "rm -rf _site && npx eleventy --serve --input=sample"
   },
