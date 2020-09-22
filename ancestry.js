@@ -87,9 +87,20 @@ module.exports = {
 
     path = path.replace(/_index$/, 'index');
 
-    if (ancestryMap[path].children) return ancestryMap[path].children;
+    return (ancestryMap[path].children) ? ancestryMap[path].children : null;
+  },
 
-    return null;
+  ancestors: (path) => {
+    if (typeof path === 'object' && path.filePathStem) path = path.filePathStem;
+
+    path = path.replace(/_index$/, 'index');
+
+    let results = [];
+    while (ancestryMap[path].parent) {
+      path = ancestryMap[path].parent;
+      results.unshift(ancestryMap[path]);
+    }
+    return results;
   },
 
   sorted: (collection, key, ascendingOrder = true) => {

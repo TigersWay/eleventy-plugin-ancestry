@@ -9,6 +9,7 @@ module.exports = (eleventyConfig) => {
 
   eleventyConfig.addFilter('find', ancestry.find);
   eleventyConfig.addFilter('children', ancestry.children);
+  eleventyConfig.addFilter('ancestors', ancestry.ancestors);
   eleventyConfig.addFilter('sorted', ancestry.sorted);
 
 }

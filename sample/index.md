@@ -78,3 +78,15 @@ Children which can be sorted with a "deep" property.
 {%- for item in '/animalia/chordata/mammalia/index' | children | sorted('data.title') %}
 - {{ show(item) }}
 {%- endfor %}
+
+... and now, their ancestors:
+{% raw %}
+```
+{%- for item in '/animalia/chordata/mammalia/carnivora/tiger' | ancestors %}
+- {{ item.data.title }} {url:'{{ item.url }}'}
+{%- endfor %}
+```
+{% endraw%}
+{%- for item in '/animalia/chordata/mammalia/carnivora/tiger' | ancestors %}
+- {{ show(item) }}
+{%- endfor %}

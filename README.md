@@ -27,6 +27,8 @@ See `sample/index.md` & `sample/_includes/base.njk` for examples how to access c
 - `children`: Gives access to the folder or subfolders `collections.all` elements.
 - `sorted`: Allows to sort any collection with a deep property.
 
+- `ancestors`(v0.5): Gives access to the parents/ancestors of the elements
+
 #### Notes
 
 - As of today, the use of `_index` (to allow easier search of parent) is not included in Eleventy [#1057](https://github.com/11ty/eleventy/issues/1057) & [#774](https://github.com/11ty/eleventy/issues/774).<br>
