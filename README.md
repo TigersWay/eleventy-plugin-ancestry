@@ -5,7 +5,7 @@ A plugin for creating a real hierarchical navigation, following folders and docu
 ### Install  [![npm](https://img.shields.io/npm/v/@tigersway/eleventy-plugin-ancestry?style=flat-square)](https://www.npmjs.com/package/@tigersway/eleventy-plugin-ancestry)
 
 ```sh
-npm install @tigersway/eleventy-plugin-ancestry --save
+npm install @tigersway/eleventy-plugin-ancestry
 ```
 
 Open up your Eleventy config file (probably `.eleventy.js`) and use `addPlugin`:

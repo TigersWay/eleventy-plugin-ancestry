@@ -13,12 +13,14 @@ function compareValues(key, ascendingOrder = true) {
     const varB = getProperty(b, key);
 
     let comparison = 0;
-    if (varA > varB) {
+    if (!varA && !varB) {
+      comparison = 0;
+    } else if (!varB || varA > varB) {
       comparison = 1;
-    } else if (varA < varB) {
+    } else if (!varA || varA < varB) {
       comparison = -1;
     }
-    return (!ascendingOrder ? (comparison * -1) : comparison);
+    return ascendingOrder ? comparison : comparison * -1;
   };
 }
 
@@ -87,7 +89,7 @@ module.exports = {
 
     path = path.replace(/_index$/, 'index');
 
-    return (ancestryMap[path].children) ? ancestryMap[path].children : null;
+    return ancestryMap[path]?.children ? ancestryMap[path].children : null;
   },
 
   ancestors: (path) => {

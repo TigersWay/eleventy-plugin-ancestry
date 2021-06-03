@@ -4,9 +4,11 @@
   "keywords": [
     "eleventy",
     "11ty",
-    "eleventy-plugin"
+    "eleventy-plugin",
+    "collections",
+    "tree"
   ],
-  "version": "0.5.0",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "Ben Michaud <ben@tigersway.net>",
   "repository": {
@@ -14,6 +16,9 @@
     "url": "git+https://github.com/TigersWay/eleventy-plugin-ancestry.git"
   },
   "main": ".eleventy.js",
+  "files": [
+    "ancestry.js"
+  ],
   "scripts": {
     "demo": "rm -rf _site && npx eleventy --serve --input=sample"
   },
