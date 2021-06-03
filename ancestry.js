@@ -89,7 +89,7 @@ module.exports = {
 
     path = path.replace(/_index$/, 'index');
 
-    return ancestryMap[path]?.children ? ancestryMap[path].children : null;
+    return ancestryMap[path]?.children ? ancestryMap[path].children : [];
   },
 
   ancestors: (path) => {
