@@ -17,7 +17,7 @@
   "scripts": {
     "demo": "rm -rf _site && npx eleventy --serve --input=sample"
   },
-  "devDependencies": {
-    "@11ty/eleventy": "^0.11.0"
+  "peerDependencies": {
+    "@11ty/eleventy": "^0.12.1"
   }
 }
