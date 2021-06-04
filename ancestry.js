@@ -98,7 +98,7 @@ module.exports = {
     path = path.replace(/_index$/, 'index');
 
     let results = [];
-    while (ancestryMap[path].parent) {
+    while (ancestryMap[path]?.parent) {
       path = ancestryMap[path].parent;
       results.unshift(ancestryMap[path]);
     }
