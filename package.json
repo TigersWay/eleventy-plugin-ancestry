@@ -8,7 +8,7 @@
     "collections",
     "tree"
   ],
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "author": "Ben Michaud <ben@tigersway.net>",
   "repository": {
@@ -23,6 +23,6 @@
     "demo": "rm -rf _site && npx eleventy --serve --input=sample"
   },
   "peerDependencies": {
-    "@11ty/eleventy": "^0.12.1"
+    "@11ty/eleventy": ">=0.12.1"
   }
 }

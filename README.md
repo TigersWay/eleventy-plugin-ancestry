@@ -2,7 +2,7 @@
 
 A plugin for creating a real hierarchical navigation, following folders and documents, in Eleventy projects.
 
-### Install  [![npm](https://img.shields.io/npm/v/@tigersway/eleventy-plugin-ancestry?style=flat-square)](https://www.npmjs.com/package/@tigersway/eleventy-plugin-ancestry)
+## Install  [![npm](https://img.shields.io/npm/v/@tigersway/eleventy-plugin-ancestry?style=flat-square)](https://www.npmjs.com/package/@tigersway/eleventy-plugin-ancestry)
 
 ```sh
 npm install @tigersway/eleventy-plugin-ancestry
@@ -17,11 +17,11 @@ module.exports = function(eleventyConfig) {
 };
 ```
 
-### Usage
+## Usage
 
 See `sample/index.md` & `sample/_includes/base.njk` for examples how to access children/parent.
 
-#### Supplied filters
+### Supplied filters
 
 - `find`: Gives access to one - if it exists - `collections.all` element.
 - `children`: Gives access to the folder or subfolders `collections.all` elements.
@@ -29,7 +29,22 @@ See `sample/index.md` & `sample/_includes/base.njk` for examples how to access c
 
 - `ancestors`(v0.5): Gives access to the parents/ancestors of the elements
 
-#### Notes
+### Notes
 
 - As of today, the use of `_index` (to allow easier search of parent) is not included in Eleventy [#1057](https://github.com/11ty/eleventy/issues/1057) & [#774](https://github.com/11ty/eleventy/issues/774).<br>
 A permalink rewrite in root directory data file imposes `eleventyComputed` in `@11ty/eleventy@0.11.0`!
+
+## CHANGELOG
+
+**v1.0.3**
+ - Eleventy peer dependency corrected
+
+**v1.0.2**
+ - Chaining ancestors
+
+**v1.0.1**
+ - `permalink:false && eleventyExcludeFromCollections: true` are now possible
+ - Eleventy now peerDependency
+
+**v0.5.0**
+ - ...
