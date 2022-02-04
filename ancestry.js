@@ -1,6 +1,5 @@
 const path = require('path');
 
-
 const getProperty = (obj, name) => {
   return name.split('.').reduce((previous, current) => {
     return previous ? previous[current] : undefined;
@@ -24,7 +23,6 @@ function compareValues(key, ascendingOrder = true) {
   };
 }
 
-
 let ancestryMap = {}
 
 module.exports = {
@@ -40,23 +38,16 @@ module.exports = {
         return map;
       }, {});
 
-      String.prototype.isIndex = function () {
-        return this.match(/\/_?index$/);
-      }
-      String.prototype.normalizeIndex = function () {
-        return this.replace(/_index$/, 'index');
-      }
-
       Object.keys(ancestryMap).forEach(key => {
         // TODO: Need to simplify these
         let parent = key;
-        if (parent.isIndex()) {
+        if (isIndex(parent)) {
           parent = path.dirname(parent);
           while (parent !== '/') {
             parent = path.dirname(parent);
             index = path.join(parent, 'index').replace(/\\/g, '/');
             if (ancestryMap[index]) {
-              ancestryMap[key].parent = ancestryMap[index].filePathStem.normalizeIndex();
+              ancestryMap[key].parent = normalizeIndex(ancestryMap[index].filePathStem);
               ancestryMap[index].children.push(ancestryMap[key]);
               break;
             }
@@ -66,7 +57,7 @@ module.exports = {
             parent = path.dirname(parent);
             index = path.join(parent, 'index').replace(/\\/g, '/');
             if (ancestryMap[index]) {
-              ancestryMap[key].parent = ancestryMap[index].filePathStem.normalizeIndex();
+              ancestryMap[key].parent = normalizeIndex(ancestryMap[index].filePathStem);
               ancestryMap[index].children.push(ancestryMap[key]);
               break;
             }
@@ -109,4 +100,12 @@ module.exports = {
     return collection.sort(compareValues(key, ascendingOrder));
   }
 
+}
+
+function isIndex (str) {
+  return str.match(/\/_?index$/);
+}
+
+function normalizeIndex (str) {
+  return str.replace(/_index$/, 'index');
 }
