@@ -1,5 +1,6 @@
 const path = require('path');
 
+
 const getProperty = (obj, name) => {
   return name.split('.').reduce((previous, current) => {
     return previous ? previous[current] : undefined;
@@ -23,6 +24,7 @@ function compareValues(key, ascendingOrder = true) {
   };
 }
 
+
 let ancestryMap = {}
 
 module.exports = {
@@ -37,6 +39,10 @@ module.exports = {
         map[item.filePathStem.replace(/_index$/, 'index')] = item;
         return map;
       }, {});
+
+      isIndex = (str) => str.match(/\/_?index$/);
+            
+      normalizeIndex = (str) => str.replace(/_index$/, 'index');
 
       Object.keys(ancestryMap).forEach(key => {
         // TODO: Need to simplify these
@@ -100,12 +106,4 @@ module.exports = {
     return collection.sort(compareValues(key, ascendingOrder));
   }
 
-}
-
-function isIndex (str) {
-  return str.match(/\/_?index$/);
-}
-
-function normalizeIndex (str) {
-  return str.replace(/_index$/, 'index');
 }
