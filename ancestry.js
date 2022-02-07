@@ -40,23 +40,20 @@ module.exports = {
         return map;
       }, {});
 
-      String.prototype.isIndex = function () {
-        return this.match(/\/_?index$/);
-      }
-      String.prototype.normalizeIndex = function () {
-        return this.replace(/_index$/, 'index');
-      }
+      isIndex = (str) => str.match(/\/_?index$/);
+            
+      normalizeIndex = (str) => str.replace(/_index$/, 'index');
 
       Object.keys(ancestryMap).forEach(key => {
         // TODO: Need to simplify these
         let parent = key;
-        if (parent.isIndex()) {
+        if (isIndex(parent)) {
           parent = path.dirname(parent);
           while (parent !== '/') {
             parent = path.dirname(parent);
             index = path.join(parent, 'index').replace(/\\/g, '/');
             if (ancestryMap[index]) {
-              ancestryMap[key].parent = ancestryMap[index].filePathStem.normalizeIndex();
+              ancestryMap[key].parent = normalizeIndex(ancestryMap[index].filePathStem);
               ancestryMap[index].children.push(ancestryMap[key]);
               break;
             }
@@ -66,7 +63,7 @@ module.exports = {
             parent = path.dirname(parent);
             index = path.join(parent, 'index').replace(/\\/g, '/');
             if (ancestryMap[index]) {
-              ancestryMap[key].parent = ancestryMap[index].filePathStem.normalizeIndex();
+              ancestryMap[key].parent = normalizeIndex(ancestryMap[index].filePathStem);
               ancestryMap[index].children.push(ancestryMap[key]);
               break;
             }
